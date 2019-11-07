@@ -8,23 +8,25 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 
-public class Main/* extends Application */{
-/*
+public class Main extends Application {
+
     @Override
     public void start(Stage primaryStage) throws Exception{
         Controller controller = new Controller();
         controller.start(primaryStage);
     }
 
-    public static void main(String[] args){
-        launch(args);
-    }
-*/
+   /* public static void main(String[] args){
+        //launch(args);
+        Controller controller = new Controller();
+        controller.generatePassword();
+    }*/
 
+/*
     public static void main(String[] args) {
 
         Controller controller = new Controller();
         controller.generatePassword();
 
-    }
+    }*/
 }

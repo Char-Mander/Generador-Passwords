@@ -12,7 +12,7 @@ public class DAOPassword {
     public DAOPassword(){}
 
     public DAOPassword(String _dir){
-        directorio = _dir;
+        directorio = _dir + File.separator;
     }
 
     public void guardarPassword(Password password) throws IOException {

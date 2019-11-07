@@ -4,6 +4,7 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -44,11 +45,13 @@ public class Controller/* extends Application */{
         return name;
     }
 
-/*
+
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("GeneratePasswordWindow.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaInicio.fxml"));
         primaryStage.setTitle("Password Generator");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        primaryStage.getIcons().add(new Image("/Images/lock.png"));
+        primaryStage.setScene(new Scene(root, 480, 390));
+        primaryStage.setResizable(false);
         primaryStage.show();
-    }*/
+    }
 }
