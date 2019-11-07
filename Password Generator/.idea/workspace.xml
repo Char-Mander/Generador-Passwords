@@ -1,7 +1,24 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="" />
+    <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
+      <change afterPath="$PROJECT_DIR$/src/main/CharacterTypes.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/vcs.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Password Generator/META-INF/Password Generator.kotlin_module" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Password Generator/main/CheckPasswordSecurity.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Password Generator/main/CheckPasswordSecurity.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Password Generator/main/Controller.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Password Generator/main/Controller.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Password Generator/main/DAOPassword.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Password Generator/main/DAOPassword.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Password Generator/main/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Password Generator/main/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Password Generator/main/Password.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Password Generator/main/Password.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/Password Generator/main/PasswordGenerator.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Password Generator/main/PasswordGenerator.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/CheckPasswordSecurity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/CheckPasswordSecurity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/DAOPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/DAOPassword.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Password.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Password.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/PasswordGenerator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/PasswordGenerator.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,6 +74,7 @@
       <list>
         <option value="FxmlFile" />
         <option value="Class" />
+        <option value="Enum" />
       </list>
     </option>
   </component>
@@ -65,8 +83,12 @@
       <setting name="OPEN_NEW_TAB" value="false" />
     </FindUsagesManager>
   </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
   <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
   <component name="ProjectId" id="1TBfhxq6kj8klUL1XoBRWuta7YD" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectReloadState">
     <option name="STATE" value="0" />
   </component>
@@ -227,11 +249,23 @@
       <workItem from="1572938534944" duration="15414000" />
       <workItem from="1573024803498" duration="1201000" />
       <workItem from="1573037161063" duration="981000" />
+      <workItem from="1573113277593" duration="4280000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="1" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
   <component name="VcsManagerConfiguration">
     <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
@@ -242,8 +276,13 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/Controller.java</url>
-          <line>13</line>
+          <line>18</line>
           <option name="timeStamp" value="20" />
+        </line-breakpoint>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/main/PasswordGenerator.java</url>
+          <line>12</line>
+          <option name="timeStamp" value="21" />
         </line-breakpoint>
       </breakpoints>
     </breakpoint-manager>

@@ -2,10 +2,6 @@ package main;
 
 public class PasswordGenerator {
     private static PasswordGenerator _instance = new PasswordGenerator();
-    private final static String NUMBERS="0123456789";
-    private final static String UPLETTERS="ABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
-    private final static String DOWNLETTERS="abcdefghijklmnñopqrstuvwxyz";
-    private final static String SPECIAL_CHARATERS="!@#$%&¿?¡!·¬+-";
     private final static int MIN_SIZE = 8;
     private final static int MAX_SIZE = 20;
 
@@ -13,25 +9,18 @@ public class PasswordGenerator {
 
     public static PasswordGenerator getInstance(){ return _instance; }
 
-    public Password generatePassword(){
+    public Password generatePassword(String nombre){
         int size = (int)((Math.random() * ((MAX_SIZE - MIN_SIZE) + 1)) + MIN_SIZE);
-        Password password = new Password();
+        //Password password = new Password();
         String pass="";
         for(int i=0; i<size; i++){
             int random =  (int)((Math.random() * ((3) + 1)) + 0);
             pass+=selectACharacterRandomly(random);
         }
+        Password password = new Password(nombre, pass);
         password.setPassword(pass);
         return password;
     }
-
-    public String getNumbers(){return NUMBERS;}
-
-    public String getUpLetters(){return UPLETTERS;}
-
-    public String getDownLetters(){return DOWNLETTERS;}
-
-    public String getSpecialCharaters(){return SPECIAL_CHARATERS;}
 
     private String selectACharacterRandomly(int random){
         String character;
@@ -45,28 +34,28 @@ public class PasswordGenerator {
         return character;
     }
 
-    private char getRandomNumber(){
-        int pos = (int)((Math.random() * ((NUMBERS.length()) + 1)) + 0);
-        System.out.println("character: " + NUMBERS.toCharArray()[pos]);
-        return NUMBERS.toCharArray()[pos];
-    }
-
-    private char getRandomUpLetter(){
-      int pos = (int)((Math.random() * ((UPLETTERS.length()) + 1)) + 0);
-      System.out.println("character: " + UPLETTERS.toCharArray()[pos]);
-      return UPLETTERS.toCharArray()[pos];
-    }
-
     private char getRandomDownLetter(){
-        int pos = (int)((Math.random() * ((DOWNLETTERS.length()) + 1)) + 0);
-        System.out.println("character: " + DOWNLETTERS.toCharArray()[pos]);
-        return DOWNLETTERS.toCharArray()[pos];
+        int pos = (int)((Math.random() * ((CharacterTypes.DOWNLETTERS.getValue().length()) + 1)) + 0);
+        System.out.println("character: " + CharacterTypes.DOWNLETTERS.getValue().toCharArray()[pos]);
+        return CharacterTypes.DOWNLETTERS.getValue().toCharArray()[pos];
+    }
+
+    private char getRandomNumber(){
+        int pos = (int)((Math.random() * ((CharacterTypes.NUMBERS.getValue().length()) + 1)) + 0);
+        System.out.println("character: " + CharacterTypes.NUMBERS.getValue().toCharArray()[pos]);
+        return CharacterTypes.NUMBERS.getValue().toCharArray()[pos];
     }
 
     private char getRandomSpecialCharacter(){
-        int pos = (int)((Math.random() * ((SPECIAL_CHARATERS.length()) + 1)) + 0);
-        System.out.println("character: " + SPECIAL_CHARATERS.toCharArray()[pos]);
-        return SPECIAL_CHARATERS.toCharArray()[pos];
+        int pos = (int)((Math.random() * ((CharacterTypes.SPECIAL_CHARATERS.getValue().length()) + 1)) + 0);
+        System.out.println("character: " + CharacterTypes.SPECIAL_CHARATERS.getValue().toCharArray()[pos]);
+        return CharacterTypes.SPECIAL_CHARATERS.getValue().toCharArray()[pos];
+    }
+
+    private char getRandomUpLetter(){
+        int pos = (int)((Math.random() * ((CharacterTypes.UPLETTERS.getValue().length()) + 1)) + 0);
+        System.out.println("character: " + CharacterTypes.UPLETTERS.getValue().toCharArray()[pos]);
+        return CharacterTypes.UPLETTERS.getValue().toCharArray()[pos];
     }
 
 }

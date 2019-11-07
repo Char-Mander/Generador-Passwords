@@ -15,7 +15,7 @@ public class DAOPassword {
         directorio = _dir;
     }
 
-    public void guardarPassword(String password) throws IOException {
+    public void guardarPassword(Password password) throws IOException {
 
         File dir = new File(directorio);
         if(!dir.exists()){
@@ -25,12 +25,13 @@ public class DAOPassword {
 
         String fileInfo = buscarArchivo();
         directorio+=NAMEFILE;
+        String newInfo = "" + password.getName() + ": \t" + password.getPassword();
         if(fileInfo != null){
-            fileInfo+=password;
+            fileInfo+=newInfo;
             escribirEnArchivo(fileInfo);
         }
         else{
-            escribirEnArchivo(password);
+            escribirEnArchivo(newInfo);
         }
     }
 

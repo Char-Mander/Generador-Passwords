@@ -17,35 +17,24 @@ public class CheckPasswordSecurity {
         return ok;
     }
 
-    private boolean hasAtLeastOneNumber(String password){
-        boolean found = false;
-        int index = 0;
-        while(!found && index <passwordGenerator.getNumbers().length()){
-            if(password.contains(passwordGenerator.getNumbers().substring(index, index))){
-                found = true;
-            }
-            index++;
-        }
-        return found;
-    }
-
-    private boolean hasAtLeastOneUpLetter(String password){
-        boolean found = false;
-        int index = 0;
-        while(!found && index <passwordGenerator.getUpLetters().length()){
-            if(password.contains(passwordGenerator.getUpLetters().substring(index, index))){
-                found = true;
-            }
-            index++;
-        }
-        return found;
-    }
 
     private boolean hasAtLeastOneDownLetter(String password){
         boolean found = false;
         int index = 0;
-        while(!found && index <passwordGenerator.getDownLetters().length()){
-            if(password.contains(passwordGenerator.getDownLetters().substring(index, index))){
+        while(!found && index < CharacterTypes.DOWNLETTERS.getValue().length()){
+            if(password.contains(CharacterTypes.DOWNLETTERS.getValue().substring(index, index))){
+                found = true;
+            }
+            index++;
+        }
+        return found;
+    }
+
+    private boolean hasAtLeastOneNumber(String password){
+        boolean found = false;
+        int index = 0;
+        while(!found && index < CharacterTypes.NUMBERS.getValue().length()){
+            if(password.contains(CharacterTypes.NUMBERS.getValue().substring(index, index))){
                 found = true;
             }
             index++;
@@ -57,8 +46,22 @@ public class CheckPasswordSecurity {
     private boolean hasAtLeastOneSpecialCharacter(String password){
         boolean found = false;
         int index = 0;
-        while(!found && index <passwordGenerator.getSpecialCharaters().length()){
-            if(password.contains(passwordGenerator.getSpecialCharaters().substring(index, index))){
+        while(!found && index < CharacterTypes.SPECIAL_CHARATERS.getValue().length()){
+            if(password.contains(CharacterTypes.SPECIAL_CHARATERS.getValue().substring(index, index))){
+                found = true;
+            }
+            index++;
+        }
+        return found;
+    }
+
+
+
+    private boolean hasAtLeastOneUpLetter(String password){
+        boolean found = false;
+        int index = 0;
+        while(!found && index < CharacterTypes.UPLETTERS.getValue().length()){
+            if(password.contains(CharacterTypes.UPLETTERS.getValue().substring(index, index))){
                 found = true;
             }
             index++;

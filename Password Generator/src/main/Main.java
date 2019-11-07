@@ -15,12 +15,16 @@ public class Main/* extends Application */{
         Controller controller = new Controller();
         controller.start(primaryStage);
     }
+
+    public static void main(String[] args){
+        launch(args);
+    }
 */
 
     public static void main(String[] args) {
-       // launch(args);
-        Controller controler = new Controller();
-        controler.generatePassword();
+
+        Controller controller = new Controller();
+        controller.generatePassword();
 
     }
 }
