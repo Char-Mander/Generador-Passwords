@@ -6,13 +6,17 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 
 public class DAOPassword {
-    private static String directorio = System.getProperty("java.io.tmpdir");
-    private static String NAMEFILE = "Contraseñas.txt";
+    private static DAOPassword _instance = new DAOPassword();
+    private static String directorio = null;
+    private static String NAMEFILE = null;
 
-    public DAOPassword(){}
+    private DAOPassword(){}
 
-    public DAOPassword(String _dir){
-        directorio = _dir + File.separator;
+    public static DAOPassword get_instance(){return _instance;}
+
+    public void setValues(String dir, String file) {
+        setDirectorio(dir);
+        setFileDir(file);
     }
 
     public void guardarPassword(Password password) throws IOException {
@@ -67,5 +71,21 @@ public class DAOPassword {
         BufferedWriter writer = new BufferedWriter(new FileWriter(logFile));
         writer.write(datos);
         writer.close();
+    }
+
+    private void setDirectorio(String _directorio){
+        if (_directorio != null) {
+            directorio = _directorio;
+        } else {
+            directorio = System.getProperty("java.io.tmpdir");
+        }
+    }
+
+    private void setFileDir(String file) {
+        if (file != null) {
+            NAMEFILE = file;
+        } else {
+            NAMEFILE = "Contraseñas.txt";
+        }
     }
 }

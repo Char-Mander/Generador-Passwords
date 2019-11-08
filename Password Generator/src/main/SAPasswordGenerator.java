@@ -1,13 +1,15 @@
 package main;
 
-public class PasswordGenerator {
-    private static PasswordGenerator _instance = new PasswordGenerator();
+public class SAPasswordGenerator {
+    private static SAPasswordGenerator _instance = new SAPasswordGenerator();
     private final static int MIN_SIZE = 8;
     private final static int MAX_SIZE = 20;
 
-    private PasswordGenerator(){}
+    private SAPasswordGenerator(){
 
-    public static PasswordGenerator getInstance(){ return _instance; }
+    }
+
+    public static SAPasswordGenerator getInstance(){  return _instance; }
 
     public Password generatePassword(String nombre){
         int size = (int)((Math.random() * ((MAX_SIZE - MIN_SIZE) + 1)) + MIN_SIZE);
@@ -57,5 +59,4 @@ public class PasswordGenerator {
         System.out.println("character: " + CharacterTypes.UPLETTERS.getValue().toCharArray()[pos]);
         return CharacterTypes.UPLETTERS.getValue().toCharArray()[pos];
     }
-
 }
