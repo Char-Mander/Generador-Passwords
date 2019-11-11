@@ -15,70 +15,66 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
 import javax.swing.*;
+import javax.xml.soap.Text;
 import java.io.IOException;
 import java.util.Scanner;
 
 public class GUIPassword extends Application {
     Controller controller;
+    ScreenController screenController;
 
-    public GUIPassword(Stage stage){
+    public GUIPassword(Stage stage) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("VentanaInicio.fxml"));
+        Scene scene = new Scene(root, 480, 390);
+        screenController = new ScreenController(stage, scene);
+        screenController.addScreen("inicio", FXMLLoader.load(getClass().getResource("VentanaInicio.fxml")));
+        screenController.addScreen("resultado", FXMLLoader.load(getClass().getResource("EndWindow.fxml")));
+
         controller = new Controller();
         try {
-            start(stage);
-            //GUIGeneratePassword("", "", );
-            //mostrarPassword(stage);
-           // String name = getNombrePassword();
-           // controller = new Controller();
-        }
-        catch(Exception e){
+            ventanaInicio();
+        } catch (Exception e) {
             System.out.println("Exception");
         }
     }
 
     public void start(Stage primaryStage) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("VentanaInicio.fxml"));
-        primaryStage.setTitle("Password Generator");
-        primaryStage.getIcons().add(new Image("/Images/lock.png"));
-        Scene scene = new Scene(root, 480, 390);
-        primaryStage.setScene(scene);
-        primaryStage.setResizable(false);
-        primaryStage.show();
-        Button button = (Button) scene.lookup("#generatePass");
+    }
 
+    private void ventanaInicio() {
+        Scene scene = screenController.getScene();
+        screenController.activate("inicio");
+        Button button = (Button) scene.lookup("#generatePass");
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 try {
+                    Scene scene = screenController.getScene();
                     TextField directory, file, name;
                     directory = (TextField) scene.lookup("#directory");
                     file = (TextField) scene.lookup("#fileName");
                     name = (TextField) scene.lookup("#passwordName");
                     String password = controller.generateAndSavePassword(directory.getText(), file.getText(), name.getText());
-                    mostrarPassword(primaryStage, password);
+                    mostrarPassword(password);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         });
     }
-    //Click on generate pass
-    public void GUIGeneratePassword(String directory, String fileName, String passwordName){
-        controller.generateAndSavePassword(null, null, passwordName);
-    }
 
-    private void mostrarPassword(Stage primaryStage, String password) throws Exception {
-        Parent root = FXMLLoader.load(getClass().getResource("EndWindow.fxml"));
-        Scene scene = new Scene(root, 480, 390);
-        primaryStage.setScene(scene);
+    private void mostrarPassword(String password) throws Exception {
+        Scene scene = screenController.getScene();
+        screenController.activate("resultado");
         Label pass = (Label) scene.lookup("#password");
         pass.setText(password);
-        Button button = (Button) scene.lookup("#loadVentanaInicio");
+        Button button = (Button) scene.lookup("#loadVentanainicio");
 
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                   start(primaryStage);
+                    ventanaInicio();
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
