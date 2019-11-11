@@ -1,6 +1,8 @@
 package main;
 
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.Pane;
 import javafx.stage.Stage;
@@ -34,12 +36,24 @@ public class ScreenController {
     protected void desactivate(String name){
         primaryStage.hide();
     }
+
     public Scene getScene(){ return currentScene; }
 
     public Stage getStage(){ return primaryStage;}
 
-    public void cleanFields(){
-        TextField cleanPass = (TextField) currentScene.lookup("#passwordName");
+    public void cleanTextFields(){
+        TextField cleanDirectory = (TextField) currentScene.lookup(GUIComponents.DIRECTORY_TEXT_FIELD.getValue());
+        TextField cleanFile = (TextField) currentScene.lookup(GUIComponents.FILE_NAME_TEXT_FIELD.getValue());
+        TextField cleanPass = (TextField) currentScene.lookup(GUIComponents.PASSWORD_NAME_TEXT_FIELD.getValue());
+        cleanDirectory.setText("");
+        cleanFile.setText("");
         cleanPass.setText("");
     }
+
+    public Label getLabel(String id){ return (Label) currentScene.lookup(id);}
+
+    public TextField getTextField(String id){ return (TextField) currentScene.lookup(id);}
+
+    public Button getButton(String id){ return  (Button) currentScene.lookup(id); }
+
 }

@@ -1,6 +1,6 @@
 package main;
 
-public class Controller{
+public class PasswordController {
     //private static Logger log = LogManager.getLogger(Controller.class);
     SAPasswordGenerator passwordGenerator = SAPasswordGenerator.getInstance();
     SAPasswordSave passwordSave = SAPasswordSave.getInstance();

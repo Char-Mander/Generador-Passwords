@@ -1,36 +1,30 @@
 package main;
 
 import javafx.application.Application;
-import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
-import javax.swing.*;
-import javax.xml.soap.Text;
 import java.io.IOException;
-import java.util.Scanner;
 
 public class GUIPassword extends Application {
-    Controller controller;
-    ScreenController screenController;
+    private PasswordController passwordController;
+    private ScreenController screenController;
+    private final int width = 480, height = 390;
 
     public GUIPassword(Stage stage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("VentanaInicio.fxml"));
-        Scene scene = new Scene(root, 480, 390);
+        Parent root = FXMLLoader.load(getClass().getResource(GUIComponents.VENTANA_INICIO.getValue()));
+        Scene scene = new Scene(root, width, height);
+        passwordController = new PasswordController();
         screenController = new ScreenController(stage, scene);
-        screenController.addScreen("inicio", FXMLLoader.load(getClass().getResource("VentanaInicio.fxml")));
-        screenController.addScreen("resultado", FXMLLoader.load(getClass().getResource("EndWindow.fxml")));
-
-        controller = new Controller();
+        screenController.addScreen("inicio", FXMLLoader.load(getClass().getResource(GUIComponents.VENTANA_INICIO.getValue())));
+        screenController.addScreen("resultado", FXMLLoader.load(getClass().getResource(GUIComponents.VENTANA_PASSWORD.getValue())));
         try {
             ventanaInicio();
         } catch (Exception e) {
@@ -42,19 +36,18 @@ public class GUIPassword extends Application {
     }
 
     private void ventanaInicio() {
-        Scene scene = screenController.getScene();
         screenController.activate("inicio");
-        Button button = (Button) scene.lookup("#generatePass");
+        screenController.cleanTextFields();
+        Button button = screenController.getButton(GUIComponents.GENERATE_PASSWORD_BUTTON.getValue());
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    Scene scene = screenController.getScene();
                     TextField directory, file, name;
-                    directory = (TextField) scene.lookup("#directory");
-                    file = (TextField) scene.lookup("#fileName");
-                    name = (TextField) scene.lookup("#passwordName");
-                    String password = controller.generateAndSavePassword(directory.getText(), file.getText(), name.getText());
+                    directory = screenController.getTextField(GUIComponents.DIRECTORY_TEXT_FIELD.getValue());
+                    file = screenController.getTextField(GUIComponents.FILE_NAME_TEXT_FIELD.getValue());
+                    name = screenController.getTextField(GUIComponents.PASSWORD_NAME_TEXT_FIELD.getValue());
+                    String password = passwordController.generateAndSavePassword(directory.getText(), file.getText(), name.getText());
                     mostrarPassword(password);
                 } catch (Exception e) {
                     e.printStackTrace();
@@ -66,10 +59,9 @@ public class GUIPassword extends Application {
     private void mostrarPassword(String password) throws Exception {
         Scene scene = screenController.getScene();
         screenController.activate("resultado");
-        Label pass = (Label) scene.lookup("#password");
+        Label pass = screenController.getLabel(GUIComponents.PASSWORD_LABEL.getValue());
         pass.setText(password);
-        Button button = (Button) scene.lookup("#loadVentanainicio");
-
+        Button button = screenController.getButton(GUIComponents.GO_TO_START_WINDOW_BUTTON.getValue());
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
             public void handle(ActionEvent event) {
