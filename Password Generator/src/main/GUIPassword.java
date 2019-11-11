@@ -6,10 +6,14 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.input.Clipboard;
+import javafx.scene.input.ClipboardContent;
 import javafx.stage.Stage;
+import javafx.stage.StageStyle;
 
 import java.io.IOException;
 
@@ -57,10 +61,11 @@ public class GUIPassword extends Application {
     }
 
     private void mostrarPassword(String password) throws Exception {
-        Scene scene = screenController.getScene();
         screenController.activate("resultado");
         Label pass = screenController.getLabel(GUIComponents.PASSWORD_LABEL.getValue());
         pass.setText(password);
+        copyToTheClipBoard(password);
+        alertConfirmation();
         Button button = screenController.getButton(GUIComponents.GO_TO_START_WINDOW_BUTTON.getValue());
         button.setOnAction(new EventHandler<ActionEvent>() {
             @Override
@@ -74,4 +79,19 @@ public class GUIPassword extends Application {
         });
     }
 
+    private void copyToTheClipBoard(String info){
+        Clipboard clipboard = Clipboard.getSystemClipboard();
+        ClipboardContent cc = new ClipboardContent();
+        cc.putString(info);
+        clipboard.setContent(cc);
+    }
+
+    private void alertConfirmation(){
+        Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
+        alert.setTitle("The password has been successfully saved");
+        alert.setHeaderText(null);
+        alert.setContentText("The password has been copied to the clipboard");
+        alert.initStyle(StageStyle.UTILITY);
+        alert.showAndWait();
+    }
 }
