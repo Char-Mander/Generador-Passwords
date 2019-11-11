@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="cdb932d9-7e58-4d94-93a9-e7b232ef17da" name="Default" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Password Generator/main/GUIPassword$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Password Generator/main/GUIPassword$1.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Password Generator/main/GUIPassword$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Password Generator/main/GUIPassword$2.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/Password Generator/main/GUIPassword.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/Password Generator/main/GUIPassword.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/GUIPassword.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/GUIPassword.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/Main.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -82,6 +79,7 @@
     <option name="STATE" value="0" />
   </component>
   <component name="PropertiesComponent">
+    <property name="AnalyzeApkAction.lastApkPath" value="$PROJECT_DIR$/.." />
     <property name="GoToClass.includeLibraries" value="false" />
     <property name="GoToClass.toSaveIncludeLibraries" value="false" />
     <property name="GoToFile.includeJavaFiles" value="false" />
@@ -92,7 +90,7 @@
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
     <property name="dynamic.classpath" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../../4660_internalizacion" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/.." />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.15" />
     <property name="project.structure.side.proportion" value="0.2" />
@@ -259,7 +257,7 @@
       <workItem from="1573037161063" duration="981000" />
       <workItem from="1573113277593" duration="13867000" />
       <workItem from="1573202114120" duration="14441000" />
-      <workItem from="1573456201167" duration="13879000" />
+      <workItem from="1573456201167" duration="14144000" />
     </task>
     <servers />
   </component>
@@ -288,7 +286,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/src/main/Main.java</url>
-          <line>16</line>
+          <line>10</line>
           <option name="timeStamp" value="9" />
         </line-breakpoint>
         <line-breakpoint enabled="true" type="java-line">
