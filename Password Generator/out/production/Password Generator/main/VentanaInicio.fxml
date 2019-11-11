@@ -31,11 +31,11 @@
                <font>
                   <Font size="13.0" />
                </font></Label>
-            <Label layoutX="28.0" layoutY="57.0" prefHeight="25.0" prefWidth="121.0" text="Password name">
+            <Label layoutX="28.0" layoutY="57.0" prefHeight="25.0" prefWidth="121.0" text="File name">
                <font>
                   <Font size="13.0" />
                </font></Label>
-            <Label layoutX="28.0" layoutY="93.0" prefHeight="25.0" prefWidth="121.0" text="Password">
+            <Label layoutX="28.0" layoutY="93.0" prefHeight="25.0" prefWidth="121.0" text="Password name">
                <font>
                   <Font size="13.0" />
                </font></Label>
@@ -49,9 +49,9 @@
                   <Font size="17.0" />
                </font>
             </Button> -->
-            <TextField layoutX="173.0" layoutY="19.0" promptText="Default" />
-            <TextField layoutX="173.0" layoutY="93.0" />
-            <TextField layoutX="173.0" layoutY="57.0" />
+            <TextField fx:id="directory" layoutX="173.0" layoutY="19.0" promptText="Default (tmp)" />
+            <TextField fx:id="fileName" layoutX="173.0" layoutY="57.0" promptText="Default (Passwords.txt)"  />
+            <TextField fx:id="passwordName" layoutX="173.0" layoutY="93.0" />
          </children>
       </AnchorPane>
    </children>

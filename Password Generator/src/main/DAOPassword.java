@@ -74,7 +74,7 @@ public class DAOPassword {
     }
 
     private void setDirectorio(String _directorio){
-        if (_directorio != null) {
+        if (_directorio != null && !_directorio.equals("")) {
             directorio = _directorio;
         } else {
             directorio = System.getProperty("java.io.tmpdir");
@@ -82,10 +82,10 @@ public class DAOPassword {
     }
 
     private void setFileDir(String file) {
-        if (file != null) {
+        if (file != null && !file.equals("")) {
             NAMEFILE = file;
         } else {
-            NAMEFILE = "Contraseñas.txt";
+            NAMEFILE = "Passwords.txt";
         }
     }
 }

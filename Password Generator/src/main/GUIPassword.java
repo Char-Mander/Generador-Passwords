@@ -1,15 +1,20 @@
 package main;
 
 import javafx.application.Application;
+import javafx.beans.value.ObservableValue;
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
 
+import javax.swing.*;
 import java.io.IOException;
 import java.util.Scanner;
 
@@ -17,6 +22,7 @@ public class GUIPassword extends Application {
     Controller controller;
 
     public GUIPassword(Stage stage){
+        controller = new Controller();
         try {
             start(stage);
             //GUIGeneratePassword("", "", );
@@ -43,32 +49,29 @@ public class GUIPassword extends Application {
             @Override
             public void handle(ActionEvent event) {
                 try {
-                    mostrarPassword(primaryStage);
+                    TextField directory, file, name;
+                    directory = (TextField) scene.lookup("#directory");
+                    file = (TextField) scene.lookup("#fileName");
+                    name = (TextField) scene.lookup("#passwordName");
+                    String password = controller.generateAndSavePassword(directory.getText(), file.getText(), name.getText());
+                    mostrarPassword(primaryStage, password);
                 } catch (Exception e) {
                     e.printStackTrace();
                 }
             }
         });
     }
-
-
-    private String getNombrePassword(){
-        System.out.println ("Por favor introduzca un nombre para la contraseña:");
-        String name = "";
-        Scanner sc = new Scanner (System.in);
-        name = sc.nextLine ();
-        return name;
-    }
-
     //Click on generate pass
     public void GUIGeneratePassword(String directory, String fileName, String passwordName){
         controller.generateAndSavePassword(null, null, passwordName);
     }
 
-    private void mostrarPassword(Stage primaryStage) throws Exception {
+    private void mostrarPassword(Stage primaryStage, String password) throws Exception {
         Parent root = FXMLLoader.load(getClass().getResource("EndWindow.fxml"));
         Scene scene = new Scene(root, 480, 390);
         primaryStage.setScene(scene);
+        Label pass = (Label) scene.lookup("#password");
+        pass.setText(password);
         Button button = (Button) scene.lookup("#loadVentanaInicio");
 
         button.setOnAction(new EventHandler<ActionEvent>() {

@@ -5,9 +5,10 @@ public class Controller{
     SAPasswordGenerator passwordGenerator = SAPasswordGenerator.getInstance();
     SAPasswordSave passwordSave = SAPasswordSave.getInstance();
 
-    public void generateAndSavePassword(String path, String file, String name){
+    public String generateAndSavePassword(String path, String file, String name){
         Password password = generatePassword(name);
         savePassword(path, file, password);
+        return password.getPassword();
     }
 
     private Password generatePassword(String name){
