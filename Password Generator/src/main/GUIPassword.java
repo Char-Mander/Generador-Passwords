@@ -10,6 +10,7 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.image.Image;
 import javafx.scene.input.Clipboard;
 import javafx.scene.input.ClipboardContent;
 import javafx.stage.Stage;
@@ -24,6 +25,7 @@ public class GUIPassword extends Application {
 
     public GUIPassword(Stage stage) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource(GUIComponents.VENTANA_INICIO.getValue()));
+        stage.getIcons().add(new Image("/Images/lock.png"));
         Scene scene = new Scene(root, width, height);
         passwordController = new PasswordController();
         screenController = new ScreenController(stage, scene);

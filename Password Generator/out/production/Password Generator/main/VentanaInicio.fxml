@@ -44,11 +44,6 @@
                   <Font size="14.0" />
                </font>
             </Button>
-           <!-- <Button layoutX="47.0" layoutY="151.0" mnemonicParsing="false" prefHeight="38.0" prefWidth="102.0" text="Close">
-               <font>
-                  <Font size="17.0" />
-               </font>
-            </Button> -->
             <TextField fx:id="directory" layoutX="173.0" layoutY="19.0" promptText="Default (tmp)" />
             <TextField fx:id="fileName" layoutX="173.0" layoutY="57.0" promptText="Default (Passwords.txt)"  />
             <TextField fx:id="passwordName" layoutX="173.0" layoutY="93.0" />
